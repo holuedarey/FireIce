@@ -86,7 +86,7 @@ class BookController extends Controller
             $responseType = 401;
             $data = [];
         }
-        return $this->fireIce->responseHandlerBook($data, $responseType,$status);
+        return $this->fireIce->responseHandlerBook($data, $responseType, $status);
     }
 
     public function deleteBook($id)
