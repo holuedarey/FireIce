@@ -1,6 +1,9 @@
 # **Fire Ice Api and Crud Service**  
 A system for Fire ice api and CRUD transaction for ooks.
 
+## **Installation**
+- run composer install to install dependency
+
 ## **Features**
 
 - Application should query the Ice And Fire API and use the data received to
