@@ -91,31 +91,4 @@ class AuthController extends Controller
         return response()->json($request->user());
     }
 
-
-    public function getAllBooks(){
-        $client = $this->client;
-        $request = $client->get("https://www.anapioficeandfire.com/api/books/");
-        $response = [];
-        if($request->responseCode != 200){
-            $response = [];
-        }
-        $response = $this->decodeJson($request->getBody()->getContents());
-        return response()->json(['message' => $response], 200);
-    }
-
-    public function getSingleBook($query){
-        $client = $this->client;
-        $request = $client->get("https://www.anapioficeandfire.com/api/books/$query");
-        if($request->responseCode != 200){
-            $response = [];
-        }
-        $response = $this->decodeJson($request->getBody()->getContents());
-        return response()->json(['data' => $response], 200);
-    }
-
-    public function decodeJson($stringObject)
-    {
-     return json_decode($stringObject);
-    }
-
 }
