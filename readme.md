@@ -1,73 +1,291 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# **Fire Ice Api and Crud Service**  
+A system for Fire ice api and CRUD transaction for ooks.
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## **Features**
 
-## About Laravel
+- Application should query the Ice And Fire API and use the data received to
+  respond with precisely the following JSON if there are results.  
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Application should query the Ice And Fire API and get a json result of a book  
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Created in the local database a record of book
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- view in the local database a record of book
 
-## Learning Laravel
+- Update in the local database a record of book  
+- Delete in the local database a record of book
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1400 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## **Endpoints**
 
-## Laravel Sponsors
+> Base URL For Fire Ice : `https://www.anapioficeandfire.com/api`  
+> Site base url : `http://localhost:8000/api`
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
 
-## Contributing
+### + GET `/external-books`  
+This endpoint should query the Ice And Fire API and use the data received to
+respond with precisely the following JSON if there are results.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+A response of array of object with all books is returned
+```
+[
+"status_code": 200,
+"status": "success",
+"data": [
+        {
+        "id": 1,
+        "name": "A Game of Thrones",
+        "isbn": "978-0553103540",
+        "authors": [
+        "George R. R. Martin"
+        ],
+        "number_of_pages": 694,
+        "publisher": "Bantam Books",
+        "country": "United States",
+        "release_date": "1996-08-01",
+        },
+        {
+        "id": 2,
+        "name": "A Clash of Kings",
+        "isbn": "978-0553108033",
+        "author": [
+        "George R. R. Martin"
+        ],
+        "number_of_pages": 768,
+        "publisher": "Bantam Books",
+        "country": "United States",
+        "release_date": "1999-02-02",
+        }
+    ]
+]
+```
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+### + GET `/external-books/1`  
+This endpoint should query the Ice And Fire API with the pass id and use the data received to
+respond with precisely the following JSON if there are results.
 
-The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-"# FireIce" 
+A response of array of object with all books is returned
+```
+[
+"status_code": 200,
+"status": "success",
+"data": [
+
+        {
+            "id": 1,
+            "name": "A Game of Thrones",
+            "isbn": "978-0553103540",
+            "authors": [
+                "George R. R. Martin"
+            ],
+            "number_of_pages": 694,
+            "publisher": "Bantam Books",
+            "country": "United States",
+            "release_date": "1996-08-01",
+        }
+    ]
+]
+```
+
+
+
+### + POST `/books`   
+This handles the crate of new book record.  
+The post request includes the:  
+`name` - The book name.  
+`isbn` - The book isbn.  
+`authors` - The array of  book authors.  
+`number_of_pages` - The  number of pages in the book.  
+`publisher` - The book publisher.
+
+`release_date` - The book release_date.
+```
+Request:  
+{
+	"name": "My First Book",
+	"isbn": "123-3213243567",
+	"authors": [
+	    "John Doe Second"
+	],
+	"number_of_pages": 350,
+	"publisher": "Acme Books",
+	"country": "United States",
+	"release_date": "2019-08-01"
+}
+```
+
+
+```
+Response:  
+{
+	"name": "My First Book",
+	"isbn": "123-3213243567",
+	"authors": [
+	    "John Doe Second"
+	],
+	"number_of_pages": 350,
+	"publisher": "Acme Books",
+	"country": "United States",
+	"release_date": "2019-08-01"
+}  
+```
+
+### + GET `/books`
+
+This returns all books 
+  
+```
+Response:  
+    {
+        "status": "success",
+        "status_code": 200,
+        "data": [
+            {
+                "id": 2,
+                "name": "My First Book",
+                "isbn": "123-3213243567",
+                "authors": [
+                    "John Doe Second"
+                ],
+                "country": "United States",
+                "number_of_pages": "350",
+                "publisher": "Acme Books",
+                "release_date": "2019-08-01",
+                "created_at": "2020-04-18 23:52:53",
+                "updated_at": "2020-04-19 00:33:32"
+            },
+            {
+                "id": 5,
+                "name": "My First Book",
+                "isbn": "123-3213243567",
+                "authors": [
+                    "John Doe Second"
+                ],
+                "country": "United States",
+                "number_of_pages": "350",
+                "publisher": "Acme Books",
+                "release_date": "2019-08-01",
+                "created_at": "2020-04-19 00:43:52",
+                "updated_at": "2020-04-19 00:43:52"
+            },
+            {
+                "id": 6,
+                "name": "My First Book",
+                "isbn": "123-3213243567",
+                "authors": [
+                    "John Doe Second"
+                ],
+                "country": "United States",
+                "number_of_pages": "350",
+                "publisher": "Acme Books",
+                "release_date": "2019-08-01",
+                "created_at": "2020-04-19 00:44:33",
+                "updated_at": "2020-04-19 00:44:33"
+            },
+            {
+                "id": 7,
+                "name": "My First Book",
+                "isbn": "123-3213243567",
+                "authors": [
+                    "John Doe Second"
+                ],
+                "country": "United States",
+                "number_of_pages": "350",
+                "publisher": "Acme Books",
+                "release_date": "2019-08-01",
+                "created_at": "2020-04-19 00:44:45",
+                "updated_at": "2020-04-19 00:44:45"
+            }
+        ]
+    } 
+```
+
+
+### + GET `/books/1`
+
+This returns Single books 
+  
+```
+Response:  
+    {
+        "status": "success",
+        "status_code": 200,
+        "data": [
+            {
+                "id": 2,
+                "name": "My First Book",
+                "isbn": "123-3213243567",
+                "authors": [
+                    "John Doe Second"
+                ],
+                "country": "United States",
+                "number_of_pages": "350",
+                "publisher": "Acme Books",
+                "release_date": "2019-08-01",
+                "created_at": "2020-04-18 23:52:53",
+                "updated_at": "2020-04-19 00:33:32"
+            },
+        ]
+    } 
+```
+
+
+### + PATCH `/books`   
+This handles the UPDATE of EXISTING book record.  
+The PATCH request includes the:  
+`name` - The book name.  
+`isbn` - The book isbn.  
+`authors` - The array of  book authors.  
+`number_of_pages` - The  number of pages in the book.  
+`publisher` - The book publisher.
+
+`release_date` - The book release_date.
+```
+Request:  
+{
+	"name": "My CUSTOM Book",
+	"isbn": "123-3213243567",
+	"authors": [
+	    "John Doe Second"
+	],
+	"number_of_pages": 350,
+	"publisher": "Acme Books",
+	"country": "United States",
+	"release_date": "2019-08-01"
+}
+```
+
+
+```
+Response:  
+{
+	"name": "My CUSTOM Book",
+	"isbn": "123-3213243567",
+	"authors": [
+	    "John Doe Second"
+	],
+	"number_of_pages": 350,
+	"publisher": "Acme Books",
+	"country": "United States",
+	"release_date": "2019-08-01"
+}  
+```
+
+
+
+### + DELETE `/books/1`
+
+This returns Response for deleted  books 
+  
+```
+Response:  
+    [
+    "status_code": 204,
+    "status": "success",
+    "message": "The book My CUSTOM Book was deleted successfully",
+    "data": []
+    ]
+```
