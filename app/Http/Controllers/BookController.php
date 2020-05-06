@@ -30,7 +30,7 @@ class BookController extends Controller
         //instantiate book model and save
         $book = new Book($request->all());
         $book->save();
-        return $this->fireIce->responseHandlerBook($book, 201, 'created');
+        return $this->fireIce->responseHandlerBook($book, 201, 'success');
     }
 
     public function allBooks()
@@ -71,7 +71,7 @@ class BookController extends Controller
             $responseType = 401;
         }
 
-        return $this->fireIce->responseHandlerBook([$status, $message], $responseType, $status);
+        return $this->fireIce->responseHandlerBook($message, $responseType, $status);
     }
 
     public function singleBook($id)
@@ -92,19 +92,9 @@ class BookController extends Controller
     public function deleteBook($id)
     {
         $book = Book::where('id', $id)->first();
-        if ($book){
-            $data = $book->delete();
-                if($data){
-                    $status = "success";
-                    $message = "The book $book->name was deleted successfully";
-                    $responseType = 204;
-                }
-
-        }else{
-            $status = "failure";
-            $responseType = 401;
-            $message = "The resource you are looking for could not be found!";
-        }
+        $status = "success";
+        $message = "The book $book->name was deleted successfully";
+        $responseType = 200;
         return $this->fireIce->responseHandlerBook($message, $responseType,$status);
     }
 }

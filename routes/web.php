@@ -12,5 +12,5 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return response()->json([ 'status' => 200, "data" => "Api Running on port 8000",],200);
 });

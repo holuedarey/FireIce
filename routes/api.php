@@ -30,6 +30,10 @@ Route::group(['prefix' => 'auth'], function () {
 
     });
 });
+
+Route::get('/', function (){
+    return response()->json([ 'status' => 200, "data" => "Api Running on port 8000",],200);
+});
 Route::group(['prefix' => 'external-books'], function () {
     Route::get('/', 'ApiController@getAllBooks')->name('get-allBook');
     Route::get('/{id}', 'ApiController@showBook')->name('single-book');

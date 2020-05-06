@@ -45,7 +45,7 @@ class  FireIce {
     public function responseHandlerBook($response, $responseType, $statusMessage)
     {
         if ($response) {
-            return response()->json([ 'status' => $statusMessage, 'status_code'=>$responseType , 'data' => $response]);
+            return response()->json([ 'status' => $statusMessage, 'status_code'=>$responseType , 'data' => $response], $responseType);
         }
         return [];
     }

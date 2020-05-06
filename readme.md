@@ -292,3 +292,15 @@ Response:
     "data": []
     ]
 ```
+
+
+### + Unit Testing
+
+This is used to test all the end point for the Fire Ice and Book Api Controller
+  
+```
+1. To Run the Php unit Testing open your project root directory in the terminal and run the command below
+ 
+ ./vendor/bin/phpunit
+
+```
